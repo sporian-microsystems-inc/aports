@@ -9,6 +9,7 @@ ZLIB_LIBS		:= $(shell $(PKG_CONFIG) --libs zlib)
 
 # Dynamic library
 libapk.so.$(VERSION)-objs := \
+	adb.o adb_trust.o \
 	common.o database.o package.o commit.o solver.o \
 	version.o blob.o hash.o print.o \
 	io.o io_url.o io_gunzip.o io_archive.o
@@ -59,6 +60,12 @@ apk-objs		:= apk.o \
 			   app_cache.o app_version.o \
 			   app_index.o app_fetch.o app_verify.o app_dot.o \
 			   app_audit.o
+
+ifeq ($(ADB),y)
+libapk.so.$(VERSION)-objs += apk_adb.o apk_adbschema.o
+apk-objs		+= app_adbdump.o app_adbsign.o app_mkndx.o \
+			   app_convdb.o app_convndx.o
+endif
 
 LIBS_apk		:= -lapk
 LIBS_apk-test		:= -lapk

@@ -36,6 +36,7 @@
 
 #define EAPKBADURL		1024
 #define EAPKSTALEINDEX		1025
+#define EAPKFORMAT		1026
 
 static inline void *ERR_PTR(long error) { return (void*) error; }
 static inline void *ERR_CAST(const void *ptr) { return (void*) ptr; }
@@ -64,6 +65,9 @@ static inline int IS_ERR_OR_NULL(const void *ptr) { return IS_ERR(ptr) || !ptr; 
         const typeof( ((type *)0)->member ) *__mptr = (ptr);    \
         (type *)( (char *)__mptr - offsetof(type,member) );})
 #endif
+
+#define ROUND_DOWN(x,a)		((x) & ~(a-1))
+#define ROUND_UP(x,a)		(((x)+(a)-1) & ~((a)-1))
 
 extern int apk_verbosity;
 extern unsigned int apk_flags, apk_force;
