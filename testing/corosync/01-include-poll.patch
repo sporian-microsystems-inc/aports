@@ -1,0 +1,117 @@
+diff --git a/exec/main.c b/exec/main.c
+index 0ca5634a..cbe72180 100644
+--- a/exec/main.c
++++ b/exec/main.c
+@@ -75,7 +75,7 @@
+ #include <assert.h>
+ #include <sys/types.h>
+ #include <sys/file.h>
+-#include <sys/poll.h>
++#include <poll.h>
+ #include <sys/uio.h>
+ #include <sys/mman.h>
+ #include <sys/socket.h>
+diff --git a/exec/totemiba.c b/exec/totemiba.c
+index b22c3c5e..3d694c88 100644
+--- a/exec/totemiba.c
++++ b/exec/totemiba.c
+@@ -54,7 +54,7 @@
+ #include <sched.h>
+ #include <time.h>
+ #include <sys/time.h>
+-#include <sys/poll.h>
++#include <poll.h>
+ #include <limits.h>
+ #include <stdio.h>
+ #include <string.h>
+diff --git a/exec/totemmrp.c b/exec/totemmrp.c
+index 6166f32c..10fd0bac 100644
+--- a/exec/totemmrp.c
++++ b/exec/totemmrp.c
+@@ -53,7 +53,7 @@
+ #include <sched.h>
+ #include <time.h>
+ #include <sys/time.h>
+-#include <sys/poll.h>
++#include <poll.h>
+ 
+ #include <corosync/totem/totem.h>
+ #include <qb/qbloop.h>
+diff --git a/exec/totemrrp.c b/exec/totemrrp.c
+index 0d9a58d5..9895e9e8 100644
+--- a/exec/totemrrp.c
++++ b/exec/totemrrp.c
+@@ -55,7 +55,7 @@
+ #include <sched.h>
+ #include <time.h>
+ #include <sys/time.h>
+-#include <sys/poll.h>
++#include <poll.h>
+ #include <limits.h>
+ 
+ #include <corosync/sq.h>
+diff --git a/exec/totemsrp.c b/exec/totemsrp.c
+index 3aa61ccf..a4473902 100644
+--- a/exec/totemsrp.c
++++ b/exec/totemsrp.c
+@@ -71,7 +71,7 @@
+ #include <sched.h>
+ #include <time.h>
+ #include <sys/time.h>
+-#include <sys/poll.h>
++#include <poll.h>
+ #include <sys/uio.h>
+ #include <limits.h>
+ 
+diff --git a/exec/totemudp.c b/exec/totemudp.c
+index 8ed87cea..5d888dfa 100644
+--- a/exec/totemudp.c
++++ b/exec/totemudp.c
+@@ -55,7 +55,7 @@
+ #include <sched.h>
+ #include <time.h>
+ #include <sys/time.h>
+-#include <sys/poll.h>
++#include <poll.h>
+ #include <sys/uio.h>
+ #include <limits.h>
+ 
+diff --git a/exec/totemudpu.c b/exec/totemudpu.c
+index 037f82b4..16b65c93 100644
+--- a/exec/totemudpu.c
++++ b/exec/totemudpu.c
+@@ -54,7 +54,7 @@
+ #include <sched.h>
+ #include <time.h>
+ #include <sys/time.h>
+-#include <sys/poll.h>
++#include <poll.h>
+ #include <sys/uio.h>
+ #include <limits.h>
+ 
+diff --git a/exec/vsf_quorum.c b/exec/vsf_quorum.c
+index a6c739d6..f4cedd7f 100644
+--- a/exec/vsf_quorum.c
++++ b/exec/vsf_quorum.c
+@@ -37,7 +37,7 @@
+ #include <pwd.h>
+ #include <grp.h>
+ #include <sys/types.h>
+-#include <sys/poll.h>
++#include <poll.h>
+ #include <sys/uio.h>
+ #include <sys/mman.h>
+ #include <sys/socket.h>
+diff --git a/exec/vsf_ykd.c b/exec/vsf_ykd.c
+index 87241687..c3b32380 100644
+--- a/exec/vsf_ykd.c
++++ b/exec/vsf_ykd.c
+@@ -39,7 +39,7 @@
+ #include <pwd.h>
+ #include <grp.h>
+ #include <sys/types.h>
+-#include <sys/poll.h>
++#include <poll.h>
+ #include <sys/uio.h>
+ #include <sys/mman.h>
+ #include <sys/socket.h>

@@ -1,0 +1,45 @@
+# Contributor: Quinn Elliott <qelliott@sporian.com>
+# Maintainer: Quinn Elliott <qelliott@sporian.com>
+pkgname=corosync
+pkgver=2.3.5
+pkgrel=0
+pkgdesc="Corosync Cluster Engine daemon and utilities"
+url="http://corosync.github.io/corosync/"
+arch="all"
+license="BSD-3-Clause"
+depends="libqb nss"
+makedepends="autoconf automake libtool pkgconfig libqb-dev nss-dev"
+subpackages="$pkgname-dev $pkgname-doc"
+source="
+	https://github.com/$pkgname/$pkgname/releases/download/v$pkgver/$pkgname-$pkgver.tar.gz
+	01-include-poll.patch
+	02-conf-example.patch
+	corosync.initd
+	"
+
+build() {
+	./configure \
+		--prefix=/usr \
+		--sysconfdir=/etc \
+		--mandir=/usr/share/man \
+		--localstatedir=/var
+	make
+}
+
+check() {
+	make check
+}
+
+package() {
+	make DESTDIR="$pkgdir" install
+
+	install -m755 -D "$srcdir"/$pkgname.initd \
+		"$pkgdir"/etc/init.d/$pkgname
+	install -m644 -D "$builddir"/conf/"$pkgname".conf.example \
+		"$pkgdir"/etc/$pkgname/$pkgname.conf
+}
+
+sha512sums="d9e3b8f71e02889320013c219ae078b2076be325bfcf17fa31b3c4ba2a327d680ff0522302e2e44a774889bf7ddb81041904dc68da556aa91b634f9efcbe98e5  corosync-2.3.5.tar.gz
+45d6b314a43d421eda47f1692d887804c6d89c1b0ab4d1833ed60ee67f904b46adea76051b6e95b6b63831e60996666d61567215b63a46a93bf7062897f12df1  01-include-poll.patch
+9a2a118221a5d5b316300af2d258b8d15d482a400dc6209419131e26dd4bbc3d66c4c7b22da8b70caf3a242f72ce7c81c90b2f7e11c4ed9e78078141d70c7718  02-conf-example.patch
+a514ac91e4b691c7e7e65a45dbb49c1da408690012d750ff3e4cb1c45e629df070019382f9b7c1dbcf8342b1edc15b296433d1f589334effde843434005f0969  corosync.initd"
