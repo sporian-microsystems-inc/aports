@@ -1,0 +1,37 @@
+# Contributor: Quinn Elliott <qelliott@sporian.com>
+# Maintainer: Quinn Elliott <qelliott@sporian.com>
+pkgname=libqb
+pkgver=0.17.2
+pkgrel=0
+pkgdesc="High performance client server features library"
+url="https://clusterlabs.github.io/libqb/"
+arch="all"
+license="LGPL-2.1"
+makedepends="automake"
+subpackages="$pkgname-dev $pkgname-doc"
+source="
+	https://github.com/ClusterLabs/$pkgname/releases/download/v$pkgver/$pkgname-$pkgver.tar.xz
+	01-include-stat.patch
+	02-include-poll.patch
+	"
+
+build() {
+	./configure \
+		--prefix=/usr \
+		--sysconfdir=/etc \
+		--mandir=/usr/share/man \
+		--localstatedir=/var
+	make
+}
+
+check() {
+	make check
+}
+
+package() {
+	make DESTDIR="$pkgdir" install
+}
+
+sha512sums="9c6dce7d18aa4da31594faecd0ea2737c2beefa749290094f733fe89ac40f094ec6409f310c534b8144d500e8c204c328386eaf1029995698d7019c014433443  libqb-0.17.2.tar.xz
+1a9ef018d01e8e8ad219ca17138e8462882e59410ac43e33d8d2143bb5234c55ef4480898a810977f9fbca2c38f39db4b3d80437e32297991f0a2484621d7044  01-include-stat.patch
+2ccbf475fd08615b60aa8525f9808484ff43b78ec1c2944cbdffad94ae165254a90fac6da36b86b29c414126ca62f0f342ff47ff0f452763e4ab6123d00f749b  02-include-poll.patch"

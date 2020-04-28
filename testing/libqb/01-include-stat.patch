@@ -1,0 +1,12 @@
+diff --git a/include/qb/qbipcs.h b/include/qb/qbipcs.h
+index 6e6ef85..4338966 100644
+--- a/include/qb/qbipcs.h
++++ b/include/qb/qbipcs.h
+@@ -31,6 +31,7 @@ extern "C" {
+ 
+ #include <stdlib.h>
+ #include <sys/uio.h>
++#include <sys/stat.h>
+ #include <qb/qbipc_common.h>
+ #include <qb/qbhdb.h>
+ #include <qb/qbloop.h>
